@@ -54,7 +54,7 @@ def format_frame(frame):
     Format: ID,EXT,DLC,DATA_HEX\n
     Example: 07E8,0,8,0141000000000000\n
     """
-    ext = 1 if isinstance(frame, canio.RemoteTransmissionRequest) else 0
+    ext = 1 if frame.extended else 0
     data_hex = "".join("{:02X}".format(b) for b in frame.data)
     return "{:04X},{},{},{}\n".format(frame.id, ext, len(frame.data), data_hex)
 
