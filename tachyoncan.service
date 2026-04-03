@@ -1,0 +1,15 @@
+[Unit]
+Description=TachyonCAN Serial Data Service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/python3 /home/user/tachyoncan/tachyon_serial.py
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
